@@ -12,7 +12,7 @@ def preprocess(data):
     # convert message_date type
     try:
         df['message_date'] = pd.to_datetime(df['message_date'], format='%d/%m/%y, %I:%M %p - ')
-    except e:
+    except Exception as e:
         df['message_date'] = pd.to_datetime(df['message_date'], format='%d/%m/%Y, %H:%M - ')
 
     df.rename(columns={'message_date': 'date'}, inplace=True)
